@@ -32,7 +32,7 @@ public class MyVaadinApplication extends Application {
     window.addComponent(countButton);
     countButton.addListener(new ClickListener() {
       public void buttonClick(ClickEvent event) {
-        refresher.setRefreshInterval(2000L);
+        refresher.setRefreshInterval(500L);
         Thread thread = new Thread(new PingPongRunnable());
         thread.start();
       }
@@ -52,7 +52,7 @@ public class MyVaadinApplication extends Application {
         }
         
         try {
-          Thread.sleep(500L);
+          Thread.sleep(2000L);
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
