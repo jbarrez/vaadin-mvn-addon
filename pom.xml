@@ -36,7 +36,7 @@
           <scanIntervalSeconds>0</scanIntervalSeconds>
           <!-- make sure Jetty also finds the widgetset -->
           <webAppConfig>
-            <contextPath>/vaadin-widget</contextPath>
+            <contextPath>/vaadin-mvn-addon</contextPath>
             <baseResource implementation="org.mortbay.resource.ResourceCollection">
               <!-- Workaround for Maven/Jetty issue http://jira.codehaus.org/browse/JETTY-680 -->
               <!-- <resources>src/main/webapp,${project.build.directory}/${project.build.finalName}</resources> -->
@@ -65,6 +65,7 @@
     </repository>
   </repositories>
 
+  <!-- If a new widgetset is added, run 'mvn -Pcompile-widgetset clean package' -->
 	<profiles>
 		<profile>
 			<id>compile-widgetset</id>
@@ -108,26 +109,30 @@
 			</build>
 		</profile>
 	</profiles>
-  
-  
-  <dependencies>
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin</artifactId>
-      <version>6.5.4</version>
-    </dependency>
-    <!-- This is also used by gwt-maven-plugin to deduce GWT version number. -->
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-user</artifactId>
-      <version>2.1.1</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.vaadin.addons</groupId>
-      <artifactId>refresher</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-  </dependencies>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin</artifactId>
+			<version>6.5.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>2.1.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>refresher</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>paperstack</artifactId>
+			<version>0.8.1</version>
+		</dependency>
+	</dependencies>
 
 </project>
